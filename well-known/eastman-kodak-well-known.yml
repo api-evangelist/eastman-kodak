@@ -1,0 +1,118 @@
+generated: '2026-09-06'
+method: probed
+source: live HTTPS probes of every Eastman Kodak host this record knows
+note: >-
+  Probed the five named /.well-known/ paths on every Kodak-controlled host in the record —
+  the registrable domain and www, the public product-documentation host, the Salesforce
+  customer portal, the investor-relations host and the legacy www2 host. Exactly one path
+  returned a real document: https://customer.kodak.com/.well-known/openid-configuration,
+  the OpenID Connect discovery metadata for Kodak's customer support portal. That portal is
+  a Salesforce Experience Cloud tenant served from a Kodak-controlled host (issuer
+  "https://customer.kodak.com"), so the document is Kodak's to publish even though the
+  authorization server software and the scope names are Salesforce platform scopes rather
+  than Kodak product scopes. It authenticates humans into the support community; it is NOT
+  an API authorization surface, and no Kodak API is reachable through it.
+hosts:
+  - host: www.kodak.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: kodak.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+        note: 301 to www.kodak.com, which 404s
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301
+  - host: workflowhelp.kodak.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: customer.kodak.com
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 200
+        file: eastman-kodak-customer-openid-configuration.json
+        content_type: application/json;charset=UTF-8
+        note: >-
+          Real OIDC discovery document. issuer https://customer.kodak.com; authorization
+          https://customer.kodak.com/services/oauth2/authorize; token
+          https://customer.kodak.com/services/oauth2/token; jwks
+          https://customer.kodak.com/id/keys; dynamic client registration advertised at
+          /services/oauth2/register. Salesforce Experience Cloud tenant on a Kodak host.
+      - path: /.well-known/security.txt
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/api-catalog
+        status: 401
+      - path: /.well-known/ai-plugin.json
+        status: 401
+  - host: investor.kodak.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 403
+      - path: /.well-known/openid-configuration
+        status: 403
+      - path: /.well-known/oauth-authorization-server
+        status: 403
+      - path: /.well-known/api-catalog
+        status: 403
+      - path: /.well-known/ai-plugin.json
+        status: 403
+  - host: www2.kodak.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 301
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/oauth-authorization-server
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301
+agent_card_probe:
+  note: >-
+    /.well-known/agent-card.json and the legacy /.well-known/agent.json were probed on every
+    host above. No host returned a JSON AgentCard. Per the pipeline contract no a2a/ artifact
+    and no AgentCard pointer is written.
+  results:
+    - url: https://www.kodak.com/.well-known/agent-card.json
+      status: 404
+    - url: https://www.kodak.com/.well-known/agent.json
+      status: 404
+    - url: https://customer.kodak.com/.well-known/agent-card.json
+      status: 401
+    - url: https://workflowhelp.kodak.com/.well-known/agent-card.json
+      status: 404
+    - url: https://investor.kodak.com/.well-known/agent-card.json
+      status: 403
+security_txt:
+  served: false
+  note: >-
+    No security.txt on any Kodak host. probe-security-programs.py also found no bug-bounty
+    or coordinated-disclosure page and no trust center, so no SecurityTxt, Security or
+    TrustCenter pointer is emitted.

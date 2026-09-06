@@ -1,0 +1,22 @@
+generated: '2026-09-06'
+method: searched
+source: https://www.kodak.com/en/print/page/contact-sales/
+plan_count: 0
+plans: []
+note: >-
+  Eastman Kodak publishes no plans, tiers or list prices for any product, and no developer
+  pricing of any kind — there is no API to price. Every commercial surface is a
+  contact-sales or find-a-dealer form: the print software and press business routes to
+  https://www.kodak.com/en/print/page/contact-sales/ (200), and KODAK PRINERGY On Demand
+  cloud service levels are sold on a sales order, which the public service policy at
+  https://workflowhelp.kodak.com/display/POD/Service+policy (200) references but does not
+  price ("the amount of storage purchased will need to be increased accordingly and the
+  time-period indicated on the sales order"). No Pricing pointer is emitted because no
+  pricing page exists to point at.
+evidence:
+  - url: https://www.kodak.com/en/print/page/contact-sales/
+    status: 200
+  - url: https://workflowhelp.kodak.com/display/POD/Service+policy
+    status: 200
+  - url: https://workflowhelp.kodak.com/display/PA20/Prinergy+on+Demand+Services+Terms+of+Use
+    status: 200

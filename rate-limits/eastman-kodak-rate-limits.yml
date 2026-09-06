@@ -1,0 +1,20 @@
+generated: '2026-09-06'
+method: searched
+source: https://workflowhelp.kodak.com/display/DOC/Workflow+Documentation
+limit_count: 0
+rate_limits: []
+headers: []
+note: >-
+  No rate limits are documented anywhere on Kodak's public surface, because no public API
+  exists to limit. The full anonymous Confluence documentation corpus at
+  workflowhelp.kodak.com was searched (CQL over every space) and returns no throttling,
+  quota, 429 or Retry-After guidance. The named PRINERGY cloud services (Cloud Agent Bridge
+  API, Analytics API, Cloud Archiving API, DynamicPrintPlanning API) are listed only as
+  firewall allow-list entries in
+  https://workflowhelp.kodak.com/display/POD/Prinergy+Cloud+Connectivity and refuse
+  anonymous requests, so no runtime rate-limit signal can be observed either. An honest zero.
+evidence:
+  - url: https://workflowhelp.kodak.com/display/POD/Prinergy+Cloud+Connectivity
+    status: 200
+  - url: https://agentncw6dbzhv4klo.azurewebsites.net/
+    status: 403

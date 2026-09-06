@@ -1,0 +1,85 @@
+generated: '2026-09-06'
+method: searched
+source: https://workflowhelp.kodak.com/display/POD/PRINERGY+Portal+Release+Notes
+name: KODAK PRINERGY On Demand / PRINERGY Portal release notes
+docs: https://workflowhelp.kodak.com/display/DOC/Workflow+Documentation
+note: >-
+  Eastman Kodak publishes no API changelog because it publishes no public API. It DOES publish
+  a public, anonymously readable, per-release changelog for the KODAK PRINERGY On Demand cloud
+  platform on its Confluence documentation host: 28 "New Features, Bug Fixes and Limitations
+  in <version>" pages covering 2.0.0 through 2.1.15, each listing new features and named bug
+  fixes per component (Prinergy Portal, Prinergy Access, Cloud Agent, Kodak Cloud Content
+  Processing, Digital Press Analytics, Cloud Service Tool). This is a PRODUCT changelog for a
+  SaaS platform, not an API changelog — the entries reference internal component APIs
+  (Imposition Processor API, ColorFlow measurement API, Device Profile Validation API) that
+  Kodak does not publish a contract or reference for.
+scheme: semver-ish two-level product version (major.minor.patch), cloud-deployed
+current_version: 2.1.15
+entry_count: 28
+version_range: 2.0.0 - 2.1.15
+dates_note: >-
+  Kodak does not print a release date on the pages. The dates below are the Confluence
+  last-modified timestamps returned by the anonymous REST API for each page, which bound the
+  release from above; they are labelled page_modified rather than released to avoid asserting
+  a release date Kodak never stated.
+indexes:
+  - title: PRINERGY Portal Release Notes
+    url: https://workflowhelp.kodak.com/display/POD/PRINERGY+Portal+Release+Notes
+    status: 200
+  - title: PRINERGY Cloud Services Release Notes
+    url: https://workflowhelp.kodak.com/display/POD/PRINERGY+Cloud+Services+Release+Notes
+    status: 200
+entries:
+  - version: 2.1.15
+    page_modified: '2025-02-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.15
+    breaking: false
+    highlights:
+      - "Prinergy Portal: move Permission Control Group from Admin to Database"
+      - "Prinergy Access: default bleed value; Modified column in Job List View; device type for finishing equipment"
+      - "Intelligent Layout: flip layout by clicking Back Surface in Front and Back preview mode"
+  - version: 2.1.14
+    page_modified: '2025-02-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.14
+    breaking: false
+    highlights:
+      - "Prinergy Access: arrange pages to a new page set or replace an existing page set"
+      - "Kodak Cloud Content Processing: write a crash report to blob storage"
+      - "Digital Press Analytics: export of 4-hour raw page-counter data to Contract Admin"
+  - version: 2.1.13
+    page_modified: '2024-12-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.13
+    breaking: false
+    highlights:
+      - "Kodak Cloud Content Processing: page-grid anchor parameters added to the Imposition Processor API"
+      - "Kodak Cloud Content Processing: trims and bleeds supported by the Imposition Processor API"
+      - "Prinergy Portal: export loose-page ink-coverage data to CSV"
+  - version: 2.1.12
+    page_modified: '2024-12-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.12
+    breaking: false
+  - version: 2.1.11
+    page_modified: '2024-12-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.11
+    breaking: false
+  - version: 2.1.10
+    page_modified: '2024-07-10'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.10
+    breaking: false
+    highlights:
+      - "Color Content Processing 1.2.3604: add support for Imposition API"
+  - version: 2.1.9
+    page_modified: '2024-04-30'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.9
+    breaking: false
+  - version: 2.1.8
+    page_modified: '2024-04-17'
+    url: https://workflowhelp.kodak.com/display/POD/New+Features%2C+Bug+Fixes+and+Limitations+in+2.1.8
+    breaking: false
+staleness:
+  latest_entry_page_modified: '2025-02-10'
+  observed: '2026-09-06'
+  note: >-
+    The newest release-notes page has not been edited in roughly 19 months. Either PRINERGY On
+    Demand has not shipped a numbered release since 2.1.15 or Kodak stopped publishing the
+    notes; the public surface does not say which.

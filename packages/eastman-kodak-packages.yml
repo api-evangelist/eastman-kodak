@@ -1,0 +1,44 @@
+generated: '2026-09-06'
+method: searched
+source: >-
+  registry.npmjs.org search, pypi.org, and the public Kodak documentation and GitHub
+  organisation namespace
+package_count: 0
+official_count: 0
+packages: []
+note: >-
+  No first-party Eastman Kodak client library exists in any public registry. npm, PyPI,
+  Maven Central, NuGet, RubyGems, crates.io, Packagist and pkg.go.dev carry nothing
+  attributable to Kodak, and there is no Kodak GitHub organisation
+  (https://api.github.com/orgs/kodak -> 404, /orgs/eastman-kodak -> 404). This is expected:
+  Kodak publishes no API for an SDK to wrap. No SDKs or Packages pointer is emitted.
+false_positives:
+  - name: kodak, react-kodak, kodak-aztec, kodak-code-128 (and ~10 siblings)
+    registry: npm
+    version: 0.0.0
+    published: '2017-03-15'
+    official: false
+    reason: >-
+      A ZXing barcode-decoder JavaScript port published by github.com/plustwo under the
+      "kodak" name. Unrelated to Eastman Kodak; brand-name collision only.
+  - name: kodak-scanner
+    registry: npm
+    version: 0.6.1
+    published: '2018-05-24'
+    official: false
+    reason: >-
+      Third-party ECAMScript wrapper for Kodak i3000 series scanners by github.com/waitingsong.
+      Those scanners are a Kodak Alaris product line, not Eastman Kodak, and the package is
+      not published by either company.
+  - name: workflowpipelinelibs, printsequencelist, colormappinglist, simple-popup-menu
+    registry: npm
+    version: 0.4.6
+    published: '2024-01-19'
+    official: false
+    reason: >-
+      All four are described only as "VueAdminPortal" and share two personal maintainer
+      accounts (ericli1221, haibaraai). The names match PRINERGY Portal admin-UI concepts
+      (workflow pipelines, print sequences, colour mapping) closely enough to look like
+      component libraries from that codebase, but they carry no repository, homepage,
+      author, licence or Kodak attribution of any kind. NOT claimable as first-party; noted
+      here so a later round does not mistake them for Kodak SDKs.

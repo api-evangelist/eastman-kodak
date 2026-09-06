@@ -1,0 +1,74 @@
+generated: '2026-09-06'
+method: probed
+source: >-
+  https://customer.kodak.com/.well-known/openid-configuration (200) plus a negative sweep of
+  every other Kodak host and the public PRINERGY documentation
+note: >-
+  Eastman Kodak publishes no API contract, so there is nothing to derive conformance from.
+  The single machine-readable standards artifact Kodak serves anywhere is the OpenID Connect
+  discovery document for its Salesforce-hosted customer support portal. Everything else below
+  is recorded as a probed absence, not a failure: a company with no API is not non-conformant,
+  it is out of scope. NO domain-standard signature was found — Kodak's markets (commercial
+  print, packaging, motion-picture film, advanced materials) do have a print-workflow
+  interchange standard, JDF/JMF from CIP4, and Kodak PRINERGY is widely integrated over it by
+  third parties, but Kodak publishes no JDF/JMF conformance statement or schema on any public
+  host, so no entry is asserted for it.
+conformance:
+  - id: oidc
+    name: OpenID Connect Discovery 1.0
+    conforms: true
+    evidence: https://customer.kodak.com/.well-known/openid-configuration
+    detail: >-
+      Serves a complete OIDC discovery document at the RFC-mandated path — issuer,
+      authorization_endpoint, token_endpoint, userinfo_endpoint, jwks_uri,
+      registration_endpoint, introspection_endpoint, revocation_endpoint,
+      id_token_signing_alg_values_supported (RS256), claims_supported.
+    scope: >-
+      Kodak customer support portal (customer.kodak.com) only. This authenticates people into
+      a Salesforce Experience Cloud community; it does not front any Kodak product API.
+  - id: oauth2
+    name: OAuth 2.0
+    conforms: true
+    evidence: https://customer.kodak.com/.well-known/openid-configuration
+    detail: >-
+      Authorization-code and token endpoints advertised, with client_secret_post,
+      client_secret_basic and private_key_jwt token-endpoint auth methods and DPoP signing
+      algorithms. Same portal-only scope as the OIDC entry above.
+  - id: rfc8414
+    name: OAuth 2.0 Authorization Server Metadata
+    conforms: false
+    evidence: https://customer.kodak.com/.well-known/oauth-authorization-server
+    detail: 401 — the RFC 8414 path is not served anonymously; only the OIDC path is.
+  - id: rfc9116
+    name: security.txt
+    conforms: false
+    evidence: https://www.kodak.com/.well-known/security.txt
+    detail: 404 on every Kodak host probed.
+  - id: rfc9457
+    name: Problem Details for HTTP APIs
+    conforms: false
+    evidence: https://www.kodak.com/llms.txt
+    detail: >-
+      Not applicable — no public API and no published error contract exists to check.
+      Recorded as a probed absence, not a defect.
+  - id: openapi
+    name: OpenAPI
+    conforms: false
+    evidence: https://www.kodak.com/openapi.json
+    detail: >-
+      No OpenAPI, Swagger, GraphQL SDL, AsyncAPI, WSDL or .proto on any Kodak host. See
+      x-coverage in apis.yml.
+  - id: jdf-jmf
+    name: CIP4 JDF / JMF
+    conforms: unknown
+    evidence: https://workflowhelp.kodak.com/display/DOC/Workflow+Documentation
+    detail: >-
+      PRINERGY is integrated over JDF/JMF by third-party MIS vendors, but Kodak publishes no
+      JDF/JMF conformance statement, schema or interface specification on any public host.
+      Left explicitly unknown rather than asserted.
+compliance:
+  published: false
+  note: >-
+    probe-security-programs.py found no trust center, no bug bounty and no named
+    certification page (SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP) on any Kodak host. No
+    Compliance or TrustCenter pointer is emitted.
