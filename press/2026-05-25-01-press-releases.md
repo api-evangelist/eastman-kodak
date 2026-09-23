@@ -1,7 +1,9 @@
 ---
 title: Press Releases
 url: https://www.kodak.com/en/company/press-releases/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Eastman Kodak" press release artificial intelligence'
 position: 1
 source: serpapi-google

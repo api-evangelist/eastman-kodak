@@ -1,7 +1,9 @@
 ---
 title: Kodak Reports Second-Quarter 2025 Financial Results
 url: https://www.kodak.com/en/company/press-release/q2-2025-financial-results/
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Eastman Kodak" press release artificial intelligence'
 position: 2
 source: serpapi-google
